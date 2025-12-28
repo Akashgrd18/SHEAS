@@ -1,0 +1,20 @@
+2025-08-04 05:05:15 [http-nio-8080-exec-1] ERROR - c.p.p.service.impl.PatientsService - Doctor service failed to return doctor with id :5
+2025-08-04 05:07:21 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 18180 (D:\Sheas.2\patients\target\classes started by AKASH GUPTA in D:\Sheas.2)
+2025-08-04 05:07:21 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-04 05:07:30 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 10.722 seconds (process running for 12.338)
+2025-08-04 05:07:37 [http-nio-8080-exec-2] INFO  - c.p.p.service.impl.PatientsService - Creating patient with mobile number :7992405981
+2025-08-04 05:07:37 [http-nio-8080-exec-2] ERROR - c.p.p.service.impl.PatientsService - Patient already present with given mobile number :7992405981
+2025-08-04 05:07:54 [http-nio-8080-exec-4] INFO  - c.p.p.service.impl.PatientsService - Creating patient with mobile number :8549369825
+2025-08-04 05:07:54 [http-nio-8080-exec-4] ERROR - c.p.p.service.impl.PatientsService - Doctor service failed to return doctor with id :5
+2025-08-04 05:09:07 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 15560 (D:\Sheas.2\patients\target\classes started by AKASH GUPTA in D:\Sheas.2)
+2025-08-04 05:09:07 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-04 05:09:16 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 9.016 seconds (process running for 10.031)
+2025-08-04 05:09:26 [http-nio-8080-exec-1] INFO  - c.p.p.service.impl.PatientsService - Creating patient with mobile number :8549369825
+2025-08-04 05:09:27 [http-nio-8080-exec-1] INFO  - c.p.p.controller.PatientsController - Created Patient with Mobile Number :8549369825
+2025-08-04 05:10:25 [http-nio-8080-exec-3] INFO  - c.p.p.service.impl.PatientsService - Fetching all the patients with ids: [20, 21, 23, 24, 26, 29] 
+2025-08-04 05:13:29 [http-nio-8080-exec-10] ERROR - c.p.p.service.impl.PatientsService - Deletion failed as patient is present with mobile Number :1236547890
+2025-08-04 17:18:40 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 12660 (D:\Sheas.2\patients\target\classes started by AKASH GUPTA in D:\Sheas.2)
+2025-08-04 17:18:40 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-04 17:18:49 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 10.021 seconds (process running for 11.466)
+2025-08-04 17:19:00 [http-nio-8080-exec-1] INFO  - c.p.p.service.impl.PatientsService - Searching patient with mobile number :7992405981
+2025-08-04 17:19:00 [http-nio-8080-exec-1] INFO  - c.p.p.controller.PatientsController - Fetching Patient with Mobile Number :7992405981

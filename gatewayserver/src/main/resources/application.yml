@@ -1,0 +1,47 @@
+server:
+  port: 8072
+
+spring:
+  application:
+    name: gatewayserver
+
+
+
+
+
+
+
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+
+
+#      routes:
+#        - id: patients
+#          uri: lb://PATIENTS
+#          predicates:
+#            - Path=/patient/**
+#          filters:
+#            - AuthenticationFilter
+#
+#
+#        - id: security
+#          uri: lb://SECURITY
+#          predicates:
+#            - Path=/auth/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8070/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+
+
+
+

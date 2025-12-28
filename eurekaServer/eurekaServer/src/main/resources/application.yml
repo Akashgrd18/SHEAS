@@ -1,0 +1,16 @@
+spring:
+  application: "eurekaserver"
+  cloud:
+    config:
+      enabled: false
+
+
+server:
+  port: 8070
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetchRegistry: false
+    registerWithEureka: false

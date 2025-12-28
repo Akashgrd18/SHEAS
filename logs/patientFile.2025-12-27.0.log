@@ -1,0 +1,7 @@
+2025-12-27 21:44:42 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 25808 (D:\Sheas.3\patients\target\classes started by AKASH GUPTA in D:\Sheas.3)
+2025-12-27 21:44:42 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-27 21:46:56 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 28008 (D:\Sheas.3\patients\target\classes started by AKASH GUPTA in D:\Sheas.3)
+2025-12-27 21:46:56 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-27 21:47:05 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 10.786 seconds (process running for 12.027)
+2025-12-27 21:58:57 [http-nio-8080-exec-1] INFO  - c.p.p.service.impl.PatientsService - Searching patient with mobile number :7992405981
+2025-12-27 21:59:07 [http-nio-8080-exec-1] INFO  - c.p.p.controller.PatientsController - Fetching Patient with Mobile Number :7992405981
