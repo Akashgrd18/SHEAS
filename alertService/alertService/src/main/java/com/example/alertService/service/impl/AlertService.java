@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AlertService implements IAlertService {
@@ -35,7 +33,7 @@ public class AlertService implements IAlertService {
         List<Alert> alerts = alertRepository.findAllByPatientId(patientId);
 
         if(alerts.isEmpty()){
-            throw new ResourceNotFoundException("n","m","q0");
+            throw new ResourceNotFoundException("Alert", "patientId", patientId.toString());
         }
 
         List<AlertDto> alertDtos = new ArrayList<>();
@@ -44,7 +42,5 @@ public class AlertService implements IAlertService {
             alertDtos.add(alertDto);
         }
         return alertDtos;
-
-
     }
 }

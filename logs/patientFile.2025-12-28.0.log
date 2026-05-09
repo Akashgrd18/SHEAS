@@ -1,0 +1,11 @@
+2025-12-28 15:16:13 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 8992 (D:\Sheas.3\patients\target\classes started by AKASH GUPTA in D:\Sheas.3)
+2025-12-28 15:16:13 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-28 15:16:23 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 11.444 seconds (process running for 13.071)
+2025-12-28 15:26:25 [http-nio-8080-exec-2] INFO  - c.p.p.service.impl.PatientsService - Searching patient with mobile number :9188388689
+2025-12-28 15:26:26 [http-nio-8080-exec-2] INFO  - c.p.p.controller.PatientsController - Fetching Patient with Mobile Number :9188388689
+2025-12-28 15:28:25 [http-nio-8080-exec-3] INFO  - c.p.p.controller.PatientsController - Updating Patient with Mobile Number :9188388689 is success
+2025-12-28 15:28:33 [http-nio-8080-exec-6] INFO  - c.p.p.service.impl.PatientsService - Searching patient with mobile number :9188388689
+2025-12-28 15:28:33 [http-nio-8080-exec-6] INFO  - c.p.p.controller.PatientsController - Fetching Patient with Mobile Number :9188388689
+2025-12-28 15:28:43 [http-nio-8080-exec-7] INFO  - c.p.p.service.impl.PatientsService - Fetching the patient with id: 3 for alert service 
+2025-12-28 15:31:38 [http-nio-8080-exec-4] INFO  - c.p.p.service.impl.PatientsService - Fetching all the patients with ids: [3, 4] for doctor details 
+2025-12-28 15:33:29 [http-nio-8080-exec-7] INFO  - c.p.p.c.HealthDataController - Alert is created for for patient id: 19 

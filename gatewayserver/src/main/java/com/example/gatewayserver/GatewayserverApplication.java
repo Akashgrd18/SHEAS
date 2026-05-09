@@ -52,7 +52,15 @@ public class GatewayserverApplication {
 								.filter(authenticationFilter.apply(new AuthenticationFilter.Config()))
 								.rewritePath("/sheas/health/(?<segment>.*)","/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-						.uri("lb://HEALTH"))
+						.uri("lb://PATIENTS"))
+
+				.route(p -> p
+						.path("/sheas/alerts/**")
+						.filters( f -> f
+								.filter(authenticationFilter.apply(new AuthenticationFilter.Config()))
+								.rewritePath("/sheas/alerts/(?<segment>.*)","/${segment}")
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+						.uri("lb://ALERTSERVICE"))
 
 				.route(p -> p
 				.path("/sheas/security/**")

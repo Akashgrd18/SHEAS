@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class HealthDataController {
 
-    private static final Logger log = LoggerFactory.getLogger(HealthDataController.class);
     @Autowired
     private IHealthDataService iHealthDataService;
 
@@ -46,15 +45,15 @@ public class HealthDataController {
 
 
         if(patientDetailsWithAlertAndDoctor.isStatus()) {
-            log.info("Alert is created for for patient id: {} " , healthDataDto.getPatientId());
+            log.info("Alert is created for  patient id: {} " , healthDataDto.getPatientId());
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(patientDetailsWithAlertAndDoctor);
         }
         else{
             return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(null);
+                    .status(HttpStatus.OK)
+                    .body(patientDetailsWithAlertAndDoctor);
         }
 
     }

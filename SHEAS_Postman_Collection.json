@@ -1,0 +1,353 @@
+{
+  "info": {
+    "name": "SHEAS Microservices APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8072",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Security Service",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/security/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "security", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    pm.collectionVariables.set(\"jwt_token\", pm.response.text());",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/security/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "security", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patients Service",
+      "item": [
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Akash\",\n  \"age\": 25,\n  \"mobileNumber\": \"1234567890\",\n  \"doctor_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "create"]
+            }
+          }
+        },
+        {
+          "name": "Fetch Patient",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/fetch?mobileNumber=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "fetch"],
+              "query": [
+                { "key": "mobileNumber", "value": "1234567890" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Patient By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/fetchById?id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "fetchById"],
+              "query": [
+                { "key": "id", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Patient Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/fetchPatientDetails?mobileNumber=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "fetchPatientDetails"],
+              "query": [
+                { "key": "mobileNumber", "value": "1234567890" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Patients By Ids",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  1,\n  2\n]"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/by-ids",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "by-ids"]
+            }
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Akash Updated\",\n  \"age\": 26,\n  \"mobileNumber\": \"1234567890\",\n  \"doctor_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "update"]
+            }
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/patient/delete?mobileNumber=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "patient", "delete"],
+              "query": [
+                { "key": "mobileNumber", "value": "1234567890" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Health Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"heartbeat\": 110,\n  \"bp\": 130\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/patients/health/data",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "patients", "health", "data"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctors Service",
+      "item": [
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Smith\",\n  \"gender\": \"Male\",\n  \"mobileNumber\": \"0987654321\",\n  \"specialization\": \"Cardiologist\",\n  \"patients_id\": []\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/doctors/doctor/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "doctors", "doctor", "create"]
+            }
+          }
+        },
+        {
+          "name": "Fetch Doctor",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/doctors/doctor/fetch?mobileNumber=0987654321",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "doctors", "doctor", "fetch"],
+              "query": [
+                { "key": "mobileNumber", "value": "0987654321" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Doctor By Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/doctors/doctor/fetchById?id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "doctors", "doctor", "fetchById"],
+              "query": [
+                { "key": "id", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fetch Doctor Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/doctors/doctor/fetchDoctorDetails?mobileNumber=0987654321",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "doctors", "doctor", "fetchDoctorDetails"],
+              "query": [
+                { "key": "mobileNumber", "value": "0987654321" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Doctor With Patients Ids",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/doctors/doctor/updateDoctorWithPatientsIds/1/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "doctors", "doctor", "updateDoctorWithPatientsIds", "1", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alert Service",
+      "item": [
+        {
+          "name": "Create Alert",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"alertMessage\": [\n    \"High Blood Pressure\",\n    \"High Heart Rate\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sheas/alerts/alert/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "alerts", "alert", "create"]
+            }
+          }
+        },
+        {
+          "name": "Get Alert History",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sheas/alerts/alert/getAlertHistory?patientId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["sheas", "alerts", "alert", "getAlertHistory"],
+              "query": [
+                { "key": "patientId", "value": "1" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

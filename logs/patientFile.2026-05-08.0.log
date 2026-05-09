@@ -1,0 +1,10 @@
+2026-05-08 22:08:35 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 15676 (D:\Sheas.3\patients\target\classes started by AKASH GUPTA in D:\Sheas.3)
+2026-05-08 22:08:35 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 22:08:51 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 16.474 seconds (process running for 17.642)
+2026-05-08 23:03:52 [restartedMain] INFO  - c.p.patients.PatientsApplication - Starting PatientsApplication using Java 21.0.6 with PID 26616 (D:\Sheas.3\patients\target\classes started by AKASH GUPTA in D:\Sheas.3)
+2026-05-08 23:03:52 [restartedMain] INFO  - c.p.patients.PatientsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 23:04:08 [restartedMain] INFO  - c.p.patients.PatientsApplication - Started PatientsApplication in 17.859 seconds (process running for 19.648)
+2026-05-08 23:04:57 [http-nio-8080-exec-1] INFO  - c.p.p.service.impl.PatientsService - Creating patient with mobile number :9876543210
+2026-05-08 23:04:58 [http-nio-8080-exec-1] ERROR - c.p.p.service.impl.PatientsService - Doctor service failed to return doctor with id :1
+2026-05-08 23:25:03 [http-nio-8080-exec-2] INFO  - c.p.p.service.impl.PatientsService - Creating patient with mobile number :9876543210
+2026-05-08 23:25:07 [http-nio-8080-exec-2] INFO  - c.p.p.controller.PatientsController - Created Patient with Mobile Number :9876543210

@@ -1,53 +1,30 @@
 package com.project.doctors.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
 import java.util.List;
 
+@Data
+@Schema(
+        name = "DoctorDetails",
+        description = "Schema to hold doctor details along with patient information"
+)
 public class DoctorDetailsDto {
-    private String name;
-    private String gender;
-    private String mobileNumber;
-    private String  specialization;
 
+    @Schema(description = "Name of the Doctor")
+    private String name;
+
+    @Schema(description = "Gender of the Doctor")
+    private String gender;
+
+    @Schema(description = "Mobile Number of the Doctor")
+    private String mobileNumber;
+
+    @Schema(description = "Specialization of the Doctor")
+    private String specialization;
+
+    @Schema(description = "List of patients assigned to this doctor")
     private List<PatientsDto> patientsDto;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public List<PatientsDto> getPatientsDto() {
-        return patientsDto;
-    }
-
-    public void setPatientsDto(List<PatientsDto> patientsDto) {
-        this.patientsDto = patientsDto;
-    }
 }

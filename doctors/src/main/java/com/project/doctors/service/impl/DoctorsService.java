@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DoctorsService implements IDoctorsService {
+public class  DoctorsService implements IDoctorsService {
 
     @Autowired
     private DoctorsRepository doctorsRepository;
@@ -56,7 +56,7 @@ public class DoctorsService implements IDoctorsService {
 
     public void updateDoctor(Long doctorId, Long patientId) {
         Doctors doctors = doctorsRepository.findById(doctorId).orElseThrow(
-                ()-> new RuntimeException("Doctor with this Id not found")
+                ()-> new ResourceNotFoundException("Doctor", "id", doctorId.toString())
         );
 
         List<Long> patientList = doctors.getPatients_id();
@@ -64,7 +64,7 @@ public class DoctorsService implements IDoctorsService {
             patientList = new ArrayList<>();
         }
         patientList.add(patientId);
-        doctors.setPatients_ids(patientList);
+        doctors.setPatients_id(patientList);
         doctorsRepository.save(doctors);
 
     }

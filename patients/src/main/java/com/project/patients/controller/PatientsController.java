@@ -43,7 +43,6 @@ import java.util.List;
 public class PatientsController {
 
 
-    private static final Logger log = LoggerFactory.getLogger(PatientsController.class);
     @Autowired
     private IPatientsService iPatientsService;
 
@@ -107,7 +106,7 @@ public class PatientsController {
     })
 
     @PutMapping("/update")
-    public ResponseEntity<ResponseDto> updateCustomer(@Valid @RequestBody PatientsDto patientsDto){
+    public ResponseEntity<ResponseDto> updatePatient(@Valid @RequestBody PatientsDto patientsDto){
 
         boolean isUpdated = iPatientsService.updateAccount(patientsDto);
         if(isUpdated) {
@@ -169,7 +168,7 @@ public class PatientsController {
         else{
             log.error("Deleting Patient with Mobile Number :{} is failed" , mobileNumber );
             return ResponseEntity
-                    .status(HttpStatus.OK)
+                    .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(PatientsConstants.STATUS_417, PatientsConstants.MESSAGE_417_DELETE));
         }
     }
@@ -202,11 +201,11 @@ public class PatientsController {
             description = "Returns patients details for a particular doctor"
     )
     @PostMapping("/by-ids")
-    public List<PatientsDto> getPatientsById(@RequestBody List<Long> patientIds){
+    public ResponseEntity<List<PatientsDto>> getPatientsById(@RequestBody List<Long> patientIds){
 
         List<PatientsDto> patientsDto = iPatientsService.getPatientsById(patientIds);
 
-        return patientsDto;
+        return ResponseEntity.ok(patientsDto);
 
     }
 

@@ -1,6 +1,5 @@
 package com.project.doctors.mapper;
 
-//import com.project.doctors.dto.DoctorDetailsDto;
 import com.project.doctors.dto.DoctorDetailsDto;
 import com.project.doctors.dto.DoctorsDto;
 import com.project.doctors.entity.Doctors;
@@ -17,16 +16,13 @@ public class DoctorsMapper {
         return doctorsDto;
     }
 
-        public static DoctorDetailsDto mapToDoctorDetailsDto(Doctors doctors, DoctorDetailsDto doctorDetailsDto){
-            doctorDetailsDto.setName(doctors.getName());
-             doctorDetailsDto.setGender(doctors.getGender());
-             doctorDetailsDto.setMobileNumber(doctors.getMobileNumber());
-             doctorDetailsDto.setSpecialization(doctors.getSpecialization());
+    public static DoctorDetailsDto mapToDoctorDetailsDto(Doctors doctors, DoctorDetailsDto doctorDetailsDto){
+        doctorDetailsDto.setName(doctors.getName());
+        doctorDetailsDto.setGender(doctors.getGender());
+        doctorDetailsDto.setMobileNumber(doctors.getMobileNumber());
+        doctorDetailsDto.setSpecialization(doctors.getSpecialization());
 
-            return  doctorDetailsDto;
-
-
-
+        return doctorDetailsDto;
     }
 
     public static Doctors mapToDoctors(DoctorsDto doctorsDto, Doctors doctors){
@@ -34,11 +30,9 @@ public class DoctorsMapper {
         doctors.setGender(doctorsDto.getGender());
         doctors.setMobileNumber(doctorsDto.getMobileNumber());
         doctors.setSpecialization(doctorsDto.getSpecialization());
-        doctors.setPatients_ids(doctorsDto.getPatients_id());
+        doctors.setPatients_id(doctorsDto.getPatients_id());
 
         return doctors;
-
     }
-
 
 }

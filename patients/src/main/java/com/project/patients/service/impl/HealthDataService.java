@@ -73,7 +73,10 @@ public class HealthDataService implements IHealthDataService {
         }
 
         alertDto.setAlertMessage(msg);
-        AlertDto alertDto1 = alertFeignClient.createAlert(alertDto);
+        AlertDto alertDto1 = null;
+        if(isAlertCreated) {
+            alertDto1 = alertFeignClient.createAlert(alertDto);
+        }
         patients = patientsRepository.findById(healthDataDto.getPatientId()).orElseThrow(
                 ()-> new ResourceNotFoundException("Patient", "health data", "Alert Not valid" )
         );

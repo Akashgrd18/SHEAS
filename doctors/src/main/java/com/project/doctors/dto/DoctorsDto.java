@@ -1,70 +1,46 @@
 package com.project.doctors.dto;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Getter
-@Setter
+@Schema(
+        name = "Doctor",
+        description = "Schema to hold doctor details"
+)
 public class DoctorsDto {
 
-
-
+    @Schema(
+            description = "Name of the Doctor", example = "Dr. Smith"
+    )
+    @NotEmpty(message = "Name cannot be null")
+    @Size(min = 2, max = 50, message = "Name should be between 2 and 50 characters")
     private String name;
+
+    @Schema(
+            description = "Gender of the Doctor", example = "Male"
+    )
+    @NotEmpty(message = "Gender cannot be null")
     private String gender;
+
+    @Schema(
+            description = "Mobile Number of the Doctor", example = "9876543210"
+    )
+    @NotEmpty(message = "Mobile Number cannot be null")
+    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
     private String mobileNumber;
-    private String  specialization;
+
+    @Schema(
+            description = "Specialization of the Doctor", example = "Cardiologist"
+    )
+    @NotEmpty(message = "Specialization cannot be null")
+    private String specialization;
+
     private List<Long> patients_id;
 
-
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public List<Long> getPatients_id() {
-        return patients_id;
-    }
-
-    public void setPatients_id(List<Long> patients_id) {
-        this.patients_id = patients_id;
-    }
 }

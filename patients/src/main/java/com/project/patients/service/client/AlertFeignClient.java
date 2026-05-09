@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface AlertFeignClient {
 
-        @PostMapping(value = "/create", consumes = "application/json")
+        @PostMapping(value = "/alert/create", consumes = "application/json")
         public AlertDto createAlert(@RequestBody AlertDto alertDto);
     }
 
